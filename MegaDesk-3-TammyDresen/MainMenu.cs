@@ -40,5 +40,10 @@ namespace MegaDesk_3_TammyDresen
             viewSearchQuotesForm.Show(this);
             Hide();
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

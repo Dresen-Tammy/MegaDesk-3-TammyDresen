@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             this.lblName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.userName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblWidth = new System.Windows.Forms.Label();
             this.lblDepth = new System.Windows.Forms.Label();
             this.lblDrawers = new System.Windows.Forms.Label();
             this.lblFinish = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtWidth = new System.Windows.Forms.TextBox();
-            this.txtDepth = new System.Windows.Forms.TextBox();
-            this.numDrawers = new System.Windows.Forms.NumericUpDown();
-            this.listFinish = new System.Windows.Forms.ListBox();
-            this.listDays = new System.Windows.Forms.ListBox();
+            this.userDrawers = new System.Windows.Forms.NumericUpDown();
+            this.userFinish = new System.Windows.Forms.ListBox();
+            this.userSpeed = new System.Windows.Forms.ListBox();
             this.submitQuote = new System.Windows.Forms.Button();
             this.cancelQuote = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numDrawers)).BeginInit();
+            this.userWidth = new System.Windows.Forms.TextBox();
+            this.userDepth = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.userDrawers)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -56,13 +58,13 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Your Name";
             // 
-            // txtName
+            // userName
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(181, 104);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(190, 26);
-            this.txtName.TabIndex = 1;
+            this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.Location = new System.Drawing.Point(181, 104);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(190, 26);
+            this.userName.TabIndex = 1;
             // 
             // label1
             // 
@@ -120,69 +122,53 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(65, 312);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 20);
+            this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Turn around time in days";
+            this.label2.Text = "Days to delivery";
             // 
-            // txtWidth
+            // userDrawers
             // 
-            this.txtWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWidth.Location = new System.Drawing.Point(281, 145);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(90, 26);
-            this.txtWidth.TabIndex = 8;
-            // 
-            // txtDepth
-            // 
-            this.txtDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepth.Location = new System.Drawing.Point(281, 186);
-            this.txtDepth.Name = "txtDepth";
-            this.txtDepth.Size = new System.Drawing.Size(90, 26);
-            this.txtDepth.TabIndex = 9;
-            // 
-            // numDrawers
-            // 
-            this.numDrawers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numDrawers.Location = new System.Drawing.Point(282, 227);
-            this.numDrawers.Maximum = new decimal(new int[] {
+            this.userDrawers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userDrawers.Location = new System.Drawing.Point(282, 227);
+            this.userDrawers.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numDrawers.Name = "numDrawers";
-            this.numDrawers.Size = new System.Drawing.Size(89, 26);
-            this.numDrawers.TabIndex = 10;
+            this.userDrawers.Name = "userDrawers";
+            this.userDrawers.Size = new System.Drawing.Size(89, 26);
+            this.userDrawers.TabIndex = 4;
             // 
-            // listFinish
+            // userFinish
             // 
-            this.listFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listFinish.FormattingEnabled = true;
-            this.listFinish.ItemHeight = 20;
-            this.listFinish.Items.AddRange(new object[] {
+            this.userFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userFinish.FormattingEnabled = true;
+            this.userFinish.ItemHeight = 20;
+            this.userFinish.Items.AddRange(new object[] {
             "Laminate",
             "Oak",
             "Rosewood",
-            "veneer",
+            "Veneer",
             "Pine"});
-            this.listFinish.Location = new System.Drawing.Point(259, 268);
-            this.listFinish.Name = "listFinish";
-            this.listFinish.Size = new System.Drawing.Size(112, 24);
-            this.listFinish.TabIndex = 11;
+            this.userFinish.Location = new System.Drawing.Point(259, 268);
+            this.userFinish.Name = "userFinish";
+            this.userFinish.Size = new System.Drawing.Size(112, 24);
+            this.userFinish.TabIndex = 5;
             // 
-            // listDays
+            // userSpeed
             // 
-            this.listDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listDays.FormattingEnabled = true;
-            this.listDays.ItemHeight = 20;
-            this.listDays.Items.AddRange(new object[] {
+            this.userSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSpeed.FormattingEnabled = true;
+            this.userSpeed.ItemHeight = 20;
+            this.userSpeed.Items.AddRange(new object[] {
             "14",
             "7",
             "5",
             "3"});
-            this.listDays.Location = new System.Drawing.Point(261, 307);
-            this.listDays.Name = "listDays";
-            this.listDays.Size = new System.Drawing.Size(110, 24);
-            this.listDays.TabIndex = 12;
+            this.userSpeed.Location = new System.Drawing.Point(261, 307);
+            this.userSpeed.Name = "userSpeed";
+            this.userSpeed.Size = new System.Drawing.Size(110, 24);
+            this.userSpeed.TabIndex = 6;
             // 
             // submitQuote
             // 
@@ -190,7 +176,7 @@
             this.submitQuote.Location = new System.Drawing.Point(69, 376);
             this.submitQuote.Name = "submitQuote";
             this.submitQuote.Size = new System.Drawing.Size(196, 30);
-            this.submitQuote.TabIndex = 13;
+            this.submitQuote.TabIndex = 7;
             this.submitQuote.Text = "SUBMIT";
             this.submitQuote.UseVisualStyleBackColor = true;
             this.submitQuote.Click += new System.EventHandler(this.submitQuote_Click);
@@ -201,34 +187,72 @@
             this.cancelQuote.Location = new System.Drawing.Point(283, 376);
             this.cancelQuote.Name = "cancelQuote";
             this.cancelQuote.Size = new System.Drawing.Size(88, 30);
-            this.cancelQuote.TabIndex = 14;
+            this.cancelQuote.TabIndex = 8;
             this.cancelQuote.Text = "CANCEL";
             this.cancelQuote.UseVisualStyleBackColor = true;
             this.cancelQuote.Click += new System.EventHandler(this.cancelQuote_Click);
+            // 
+            // userWidth
+            // 
+            this.userWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userWidth.Location = new System.Drawing.Point(224, 145);
+            this.userWidth.Name = "userWidth";
+            this.userWidth.Size = new System.Drawing.Size(147, 26);
+            this.userWidth.TabIndex = 2;
+            this.userWidth.Validating += new System.ComponentModel.CancelEventHandler(this.userWidth_Validating);
+            // 
+            // userDepth
+            // 
+            this.userDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userDepth.Location = new System.Drawing.Point(224, 186);
+            this.userDepth.Name = "userDepth";
+            this.userDepth.Size = new System.Drawing.Size(147, 26);
+            this.userDepth.TabIndex = 3;
+            this.userDepth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userDepth_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 332);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(65, 335);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(302, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "14 days is standard. Rush fee added for faster delivery.";
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 470);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.userDepth);
+            this.Controls.Add(this.userWidth);
             this.Controls.Add(this.cancelQuote);
             this.Controls.Add(this.submitQuote);
-            this.Controls.Add(this.listDays);
-            this.Controls.Add(this.listFinish);
-            this.Controls.Add(this.numDrawers);
-            this.Controls.Add(this.txtDepth);
-            this.Controls.Add(this.txtWidth);
+            this.Controls.Add(this.userSpeed);
+            this.Controls.Add(this.userFinish);
+            this.Controls.Add(this.userDrawers);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFinish);
             this.Controls.Add(this.lblDrawers);
             this.Controls.Add(this.lblDepth);
             this.Controls.Add(this.lblWidth);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.userName);
             this.Controls.Add(this.lblName);
             this.Name = "AddQuote";
             this.Text = "Get a Quote";
-            ((System.ComponentModel.ISupportInitialize)(this.numDrawers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDrawers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,19 +261,21 @@
         #endregion
 
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox userName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblWidth;
         private System.Windows.Forms.Label lblDepth;
         private System.Windows.Forms.Label lblDrawers;
         private System.Windows.Forms.Label lblFinish;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtWidth;
-        private System.Windows.Forms.TextBox txtDepth;
-        private System.Windows.Forms.NumericUpDown numDrawers;
-        private System.Windows.Forms.ListBox listFinish;
-        private System.Windows.Forms.ListBox listDays;
+        private System.Windows.Forms.NumericUpDown userDrawers;
+        private System.Windows.Forms.ListBox userFinish;
+        private System.Windows.Forms.ListBox userSpeed;
         private System.Windows.Forms.Button submitQuote;
         private System.Windows.Forms.Button cancelQuote;
+        private System.Windows.Forms.TextBox userWidth;
+        private System.Windows.Forms.TextBox userDepth;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -14,7 +14,19 @@ namespace MegaDesk_3_TammyDresen
         public int Width { get; set;}
         public int Depth { get; set;}
         public int Drawers { get; set;}
+        //public SurfaceMaterials Finish { get; set; }
         public string Finish { get; set; }
+        public int Area { get; set; }
+
+        public enum SurfaceMaterials
+        {
+            Oak = 200,
+            Laminate = 100,
+            Pine = 50,
+            Rosewood = 300,
+            Veneer = 125
+        }
+      
 
     }
 }

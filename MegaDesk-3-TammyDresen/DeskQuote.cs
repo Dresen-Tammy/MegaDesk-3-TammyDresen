@@ -12,9 +12,10 @@ namespace MegaDesk_3_TammyDresen
         // rush days, customer name, and quote date. This class will also hold the
         // logic in determining the line item cost.
         #region member variables
-        private string CustomerName;
-        private DateTime QuoteDate;
-        private int TurnAround;
+        private string CustomerName { get; set; }
+        private DateTime QuoteDate { get; set; }
+        private int TurnAround { get; set; }
+        private int QuotePrice { get; set; }
         private Desk Desk = new Desk();
         #endregion
 
@@ -35,19 +36,29 @@ namespace MegaDesk_3_TammyDresen
                 { 30, 35, 40 }
             };
         #endregion
-        public QuoteInfo(string name, DateTime date)
-        {
-            CustomerName = name;
-            QuoteDate = date;
-        }
+
+
         public DeskQuote(int width, int depth, int drawers, string finish,
-            int rushDays)
+            int rushDays, string name)
         {
+            // save inputs to desk object
             Desk.Width = width;
             Desk.Depth = depth;
+            Desk.Area = width * depth;
             Desk.Drawers = drawers;
+            TurnAround = rushDays;
+            // convert finish string to enum and save to desk object
+            /*if (Enum.TryParse(finish, out Desk.SurfaceMaterials surfaceMaterial)) {
+                Desk.Finish = (Desk.SurfaceMaterials)surfaceMaterial; */
             Desk.Finish = finish;
-            TurnAround = rushDays; 
+
+            // save name and date to quote
+            CustomerName = name;
+            QuoteDate = DateTime.Now.Date;
+
+            // figure quote price
+            QuotePrice = CalculateQuotePrice();
+
         }
         
         public int CalculateQuotePrice()
@@ -55,96 +66,81 @@ namespace MegaDesk_3_TammyDresen
             return PRICE_BASE + SurfaceAreaCost() + DrawerCost() + FinishCost() + RushFee();
         }
 
+        // figure cost of surface area larger than 1000sf
         public int SurfaceAreaCost()
         {
-            int surfaceArea = Desk.Width + Desk.Depth;
-            int cost;
-            if (surfaceArea > BASE_SIZE)
+            if (Desk.Area > BASE_SIZE)
             {
-                return cost = (surfaceArea - BASE_SIZE) * PRICE_SQ_FOOT; 
+                return  (Desk.Area - BASE_SIZE) * PRICE_SQ_FOOT; 
             }
             else
             {
-                return cost = 0;
+                return 0;
             }   
         }
         
+        // calculate price of drawers
         public int DrawerCost()
         {
             return Desk.Drawers * PRICE_DRAWER;
         }
 
+        // get int value from enum for finish type
         public int FinishCost()
         {
             int cost = 0;
             switch (Desk.Finish)
             {
                 case "Oak":
-                    cost = OAK;
+                    cost = 200;
                     break;
                 case "Laminate":
-                    cost = LAMINATE;
+                    cost = 100;
                     break;
                 case "Pine":
-                    cost = PINE;
+                    cost = 50;
                     break;
                 case "Rosewood":
-                    cost = ROSEWOOD;
+                    cost = 300;
                     break;
                 case "Veneer":
-                    cost = VENEER;
+                    cost = 125;
                     break;
             }
             return cost;
+            //return (int)Desk.Finish;
         }
 
+        // calculate rush fee based on surface area and speed
         public int RushFee()
         {
-            int surfaceArea = Desk.Width * Desk.Depth;
+            // set size index based on surface area
+            int sizeIndex;
+            if (Desk.Area < 1000)
+            {
+                sizeIndex = 0;
+            }
+            else if (Desk.Area <= 2000)
+            {
+                sizeIndex = 1;
+            }
+            else
+            {
+                sizeIndex = 2;
+            }
+            // return rush fee based on sizeIndex and speed
             if (TurnAround == 3)
             {
-                if (surfaceArea > 2000)
-                {
-                    return RUSH_FEE[0, 2];
-                }
-                else if (surfaceArea > 1000)
-                {
-                    return RUSH_FEE[0, 1];
-                }
-                else
-                {
-                    return RUSH_FEE[0, 0];
-                }
+                return RUSH_FEE[0, sizeIndex];
+               
             }
             else if (TurnAround == 5)
             {
-                if (surfaceArea > 2000)
-                {
-                    return RUSH_FEE[1, 2];
-                }
-                else if (surfaceArea > 1000)
-                {
-                    return RUSH_FEE[1, 1];
-                }
-                else
-                {
-                    return RUSH_FEE[1, 0];
-                }
+                return RUSH_FEE[1, sizeIndex]; 
             }
             else if (TurnAround == 7)
             {
-                if (surfaceArea > 2000)
-                {
-                    return RUSH_FEE[2, 2];
-                }
-                else if (surfaceArea > 1000)
-                {
-                    return RUSH_FEE[2, 1];
-                }
-                else
-                {
-                    return RUSH_FEE[2, 0];
-                }
+                return RUSH_FEE[2, sizeIndex];
             }
             else
             {
