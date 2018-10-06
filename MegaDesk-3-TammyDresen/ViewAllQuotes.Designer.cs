@@ -34,18 +34,21 @@
             // 
             // btnAllCancel
             // 
-            this.btnAllCancel.Location = new System.Drawing.Point(293, 368);
+            this.btnAllCancel.BackColor = System.Drawing.Color.Tan;
+            this.btnAllCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllCancel.Location = new System.Drawing.Point(280, 380);
             this.btnAllCancel.Name = "btnAllCancel";
             this.btnAllCancel.Size = new System.Drawing.Size(145, 30);
             this.btnAllCancel.TabIndex = 0;
-            this.btnAllCancel.Text = "Main Menu";
-            this.btnAllCancel.UseVisualStyleBackColor = true;
+            this.btnAllCancel.Text = "&Main Menu";
+            this.btnAllCancel.UseVisualStyleBackColor = false;
             this.btnAllCancel.Click += new System.EventHandler(this.btnAllCancel_Click);
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.btnAllCancel);
             this.Name = "ViewAllQuotes";

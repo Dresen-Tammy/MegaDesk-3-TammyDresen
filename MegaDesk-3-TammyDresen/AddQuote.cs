@@ -32,15 +32,17 @@ namespace MegaDesk_3_TammyDresen
                 MessageBox.Show("Please fill in Your Name.");
                 userName.BackColor = Color.LightPink;
             }
-            else if (string.IsNullOrWhiteSpace(userWidth.Text))
+            else if (string.IsNullOrWhiteSpace(userWidth.Text) || !int.TryParse(userWidth.Text, out int result) || int.Parse(userWidth.Text) < 24 
+                || int.Parse(userWidth.Text) > 96)
             {
-                MessageBox.Show("Please fill in Width.");
+                MessageBox.Show("Please fill in Width with number between 24 and 96.");
                 userWidth.BackColor = Color.LightPink;
                 userName.BackColor = Color.White;
             }
-            else if (string.IsNullOrWhiteSpace(userDepth.Text))
+            else if (string.IsNullOrWhiteSpace(userDepth.Text) || int.Parse(userDepth.Text) < 12
+                || int.Parse(userDepth.Text) > 48)
             {
-                MessageBox.Show("Please fill in Depth.");
+                MessageBox.Show("Please fill in Depth with number between 12 and 48.");
                 userDepth.BackColor = Color.LightPink;
                 userName.BackColor = Color.White;
             }
@@ -99,6 +101,15 @@ namespace MegaDesk_3_TammyDresen
             }
         }
 
-        
+        private void userName_TextChanged(object sender, EventArgs e)
+        {
+            userName.BackColor = Color.White;
+
+        }
+
+        private void userDepth_TextChanged(object sender, EventArgs e)
+        {
+            userDepth.BackColor = Color.White;
+        }
     }
 }

@@ -34,19 +34,21 @@
             // 
             // btnSearchCancel
             // 
+            this.btnSearchCancel.BackColor = System.Drawing.Color.Tan;
             this.btnSearchCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchCancel.Location = new System.Drawing.Point(285, 386);
             this.btnSearchCancel.Name = "btnSearchCancel";
             this.btnSearchCancel.Size = new System.Drawing.Size(130, 30);
             this.btnSearchCancel.TabIndex = 0;
-            this.btnSearchCancel.Text = "Main Menu";
-            this.btnSearchCancel.UseVisualStyleBackColor = true;
+            this.btnSearchCancel.Text = "&Main Menu";
+            this.btnSearchCancel.UseVisualStyleBackColor = false;
             this.btnSearchCancel.Click += new System.EventHandler(this.btnSearchCancel_Click);
             // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.btnSearchCancel);
             this.Name = "SearchQuotes";
